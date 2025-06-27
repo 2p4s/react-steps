@@ -29,7 +29,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <>
       {/* define function here as its simple */}
       <button className="close" onClick={() => setIsOpen(!isOpen)}>
         &times;
@@ -63,6 +63,6 @@ export default function App() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
