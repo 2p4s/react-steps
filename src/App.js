@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const messages = [
   "Learn React ⚛️",
   "Apply for jobs 💼",
@@ -5,22 +7,31 @@ const messages = [
 ];
 
 export default function App() {
-  const step = 2;
+  //check import, set a default and return it
+  //const arr = useState(1);
+  //define the variable, its method and a default. anything with "use" is a React Hook
+  const [step, setStep] = useState(1);
 
   //create event handlers in the component
   function handlePrevious() {
-    alert("Previous");
+    //alert("Previous");
+    if (step > 1) {
+      setStep(step - 1);
+    }
   }
   function handleNext() {
-    alert("Next");
+    //alert(step);
+    if (step < messages.length) {
+      setStep(step + 1);
+    }
   }
 
   return (
     <div className="steps">
       <div className="numbers">
-        <div className={`${step >= 1 ? "active" : ""}`}>1</div>
-        <div className={`${step >= 2 ? "active" : ""}`}>2</div>
-        <div className={`${step >= 3 ? "active" : ""}`}>3</div>
+        <div className={step >= 1 ? "active" : ""}>1</div>
+        <div className={step >= 2 ? "active" : ""}>2</div>
+        <div className={step >= 3 ? "active" : ""}>3</div>
       </div>
 
       <p className="message">
