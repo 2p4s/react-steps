@@ -7,6 +7,14 @@ const messages = [
 export default function App() {
   const step = 2;
 
+  //create event handlers in the component
+  function handlePrevious() {
+    alert("Previous");
+  }
+  function handleNext() {
+    alert("Next");
+  }
+
   return (
     <div className="steps">
       <div className="numbers">
@@ -22,13 +30,13 @@ export default function App() {
       <div className="buttons">
         <button
           style={{ backgroundColor: "#7950f2", color: "#fff" }}
-          onClick={() => alert("Previous")}
+          onClick={handlePrevious} //do not call it ie. handlePrevious() as it will run, needs to be just a function to it
         >
           Previous
         </button>
         <button
           style={{ backgroundColor: "#7950f2", color: "#fff" }}
-          onClick={() => alert("Next")}
+          onClick={handleNext}
         >
           Next
         </button>
