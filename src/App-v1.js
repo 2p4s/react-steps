@@ -7,14 +7,6 @@ const messages = [
 ];
 
 export default function App() {
-  return (
-    <div>
-      <Steps />
-    </div>
-  );
-}
-
-function Steps() {
   //check import, set a default and return it
   //const arr = useState(1);
   //define the variable, its method and a default. anything with "use" is a React Hook
@@ -37,7 +29,7 @@ function Steps() {
   }
 
   return (
-    <div>
+    <>
       {/* define function here as its simple */}
       <button className="close" onClick={() => setIsOpen(!isOpen)}>
         &times;
@@ -56,27 +48,21 @@ function Steps() {
           </p>
           {/* use arrow method function to attach a function */}
           <div className="buttons">
-            <Button bgColor="#7950f2" textColor="#fff" onClick={handlePrevious}>
-              <span>👍</span> Previous
-            </Button>
-            <Button bgColor="#7950f2" textColor="#fff" onClick={handleNext}>
-              Next <span>🤞</span>
-            </Button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={handlePrevious} //do not call it ie. handlePrevious() as it will run, needs to be just a function to it
+            >
+              Previous
+            </button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={handleNext}
+            >
+              Next
+            </button>
           </div>
         </div>
       )}
-    </div>
-  );
-}
-
-//child props are between open and close tag
-function Button({ textColor, bgColor, onClick, children }) {
-  return (
-    <button
-      style={{ backgroundColor: bgColor, color: textColor }}
-      onClick={onClick}
-    >
-      {children}
-    </button>
+    </>
   );
 }
